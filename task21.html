@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body1">
+   <center> <p id="otp1"></p></center>
+  <center><button id="sub" onclick="sample()">send</button></center>
+    <script>
+    let sub=document.getElementById("sub")
+    sub.style.border="2px solid black"
+    let sub1=document.getElementById("otp1")
+    sub1.style.border="2px solid black"
+    sub1.style.height="20px"
+    sub1.style.width="120px"
+    sub1.style.position="relative"
+    sub1.style.top="20px"
+    
+
+    let body1=document.getElementById("body1")
+    sub.style.position="relative";
+    sub.style.top="300px";
+    function generate_otp(){
+        let otp=Math.random()*10000;
+        if(otp<1000){
+            otp+=1000;
+        }
+        return Math.floor(otp)
+    } 
+    function background(){
+         let color="#"
+         for(let i=0;i<6;i++){
+            color+=Math.floor(Math.random()*10).toString(16);
+            }
+         return color;
+         
+         }
+    function sample(){
+        sub1.innerHTML=`Your OTP is `+ generate_otp()
+        body1.style.backgroundColor=background()
+        sub1.style.backgroundColor=background()
+         }
+             
+   
+    </script>
+</body>
+</html>
